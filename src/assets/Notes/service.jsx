@@ -43,3 +43,11 @@ function api(path, method = 'GET', body = null) {
  export function getAllUserNotes(userId){
     return request(`getAllUserNotes/${userId}`, 'GET');
   }
+
+  export function deleteNote(noteId){
+    return request(`deleteNote/${noteId}`, 'DELETE');
+  }
+
+  export function addNote(userId, noteRequest){
+    return request(`addNote/${userId}`, 'POST', noteRequest);
+  }
