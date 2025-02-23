@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addNote } from "../Notes/service.jsx"; 
+import { addNote } from "../../services/api/serviceNotes.jsx"; 
 import { Button, Input, Select, Modal } from "antd";
 
 const { TextArea } = Input;

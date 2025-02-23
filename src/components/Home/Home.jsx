@@ -1,10 +1,13 @@
-import Header from "../Header/Header"
-import Note from "../Notes/Note"
+import Header from "../Header/Header.jsx"
+import Note from "../Notes/Note.jsx"
 import React, { useEffect, useState } from "react";
-import { getAllUserNotes, deleteNote } from "../Notes/service.jsx";
+import { getAllUserNotes, deleteNote } from "../../services/api/serviceNotes.jsx";
 import { Alert } from 'antd';
 
 export default function Home(){
+
+
+  
 
     let userId= 1;
 
