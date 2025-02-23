@@ -1,15 +1,16 @@
 import Header from "../Header/Header.jsx"
 import Note from "../Notes/Note.jsx"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { getAllUserNotes, deleteNote } from "../../services/api/serviceNotes.jsx";
 import { Alert } from 'antd';
+import { UserContext } from "../../services/api/userContext.jsx";
 
 export default function Home(){
 
 
-  
+    let {user} = useContext(UserContext);
 
-    let userId= 1;
+    let userId= user.id;
 
     const [notes, setNotes] = useState([]);
     const [isDeleteSuccessful, setIsDeleteSuccessful] = useState(null);

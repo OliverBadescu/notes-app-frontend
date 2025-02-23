@@ -5,8 +5,29 @@ export const UserContext = createContext();
 
 export function UserProvider({children}){
 
+    const [user, setUser] = useState(
+        {
+            email:"",
+            fullName:"",
+            id: 0,
+            jwtToken:"",
+            phone: "",
+            role: ""
+        }
+    );
 
-    const [user, setUser] = useState(null);
+    const handleLogout = () => {
+
+
+        setUser({
+            email:"",
+            fullName:"",
+            id: 0,
+            jwtToken:"",
+            phone: "",
+            role: ""
+        });
+    }
 
     
     const handleLogin = async (loginRequest) => {
@@ -15,9 +36,9 @@ export function UserProvider({children}){
 
             let data = await login(loginRequest);
 
-            if(data.success){
-                setUser(data.body);
-            }
+            setUser(data.body);
+
+
 
         }catch(err){
             alert(err);
@@ -25,9 +46,11 @@ export function UserProvider({children}){
 
     }
 
+
     const contextValue = {
         user,
-        handleLogin
+        handleLogin,
+        handleLogout
     }
 
     return(

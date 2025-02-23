@@ -1,9 +1,29 @@
 import AddNote from "../AddNote/AddNote"
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../services/api/userContext";
 
 export default function Header({ userId, onAddNote, onCategoryChange, selectedCategory   }){
 
+
+  const {user, handleLogout} = useContext(UserContext);
+
+   const navigate = useNavigate();
+
+    const handleNavigation = (event, path) => {
+        event.preventDefault(); 
+        navigate(path);
+        
+    };
+
     const [isAddNoteVisible, setIsAddNoteVisible] = useState(false);
+
+    const handleLogOut = () => {
+        if(user){
+          navigate('/');
+          handleLogout;
+        }
+    }
 
     const handleAddNoteClick = () => {
      setIsAddNoteVisible(true);
@@ -54,9 +74,15 @@ export default function Header({ userId, onAddNote, onCategoryChange, selectedCa
                 </button>
               </li>
             </ul>
-            <button className="add-notes" onClick={handleAddNoteClick}>
-              Add Notes
-            </button>
+
+            <div className="buttons-container">
+              <button className="add-notes" onClick={handleAddNoteClick}>
+                Add Notes
+              </button>
+              <button className="log-out" onClick={handleLogOut}>
+                Log Out
+              </button>
+            </div>
           </div>
     
           {isAddNoteVisible && (

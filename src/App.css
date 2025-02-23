@@ -183,7 +183,13 @@ body{
   border-radius: 5px;
 }
 
-.add-notes {
+.buttons-container{
+  margin-left: auto;
+  gap: 25px;
+  display: flex;
+}
+
+.add-notes, .log-out {
   margin-left: auto;
   background-color: blue;
   color: white;
