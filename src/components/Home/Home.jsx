@@ -3,7 +3,7 @@ import Note from "../Notes/Note.jsx"
 import React, { useEffect, useState, useContext } from "react";
 import { getAllUserNotes, deleteNote } from "../../services/api/serviceNotes.jsx";
 import { Alert } from 'antd';
-import { UserContext } from "../../services/api/userContext.jsx";
+import { UserContext } from "../../services/state/userContext.jsx";
 
 export default function Home(){
 

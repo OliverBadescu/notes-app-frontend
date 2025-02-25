@@ -1,9 +1,12 @@
 import { createContext,useState } from "react";
-import { login } from "./serviceUser";
+import { login } from "../api/serviceUser";
 
 export const UserContext = createContext();
 
 export function UserProvider({children}){
+
+
+    const [loading, setLoading] = useState(true);
 
     const [user, setUser] = useState(
         {
@@ -42,6 +45,7 @@ export function UserProvider({children}){
 
         }catch(err){
             alert(err);
+            setLoading(false);
         }
 
     }

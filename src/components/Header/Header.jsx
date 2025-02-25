@@ -1,7 +1,7 @@
 import AddNote from "../AddNote/AddNote"
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../services/api/userContext";
+import { UserContext } from "../../services/state/userContext";
 
 export default function Header({ userId, onAddNote, onCategoryChange, selectedCategory   }){
 
